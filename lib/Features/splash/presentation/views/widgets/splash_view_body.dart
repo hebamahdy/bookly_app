@@ -1,6 +1,8 @@
 import 'dart:developer';
 
+import 'package:bookly_app/Features/home/presentation/views/home_view.dart';
 import 'package:bookly_app/Features/splash/presentation/views/widgets/sliding_text.dart';
+import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/assets_data.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +27,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initState() {
     initSlidingAnimation();
 
+    navigateToHome();
     super.initState();
   }
 
@@ -62,5 +65,12 @@ class _SplashViewBodyState extends State<SplashViewBody>
       });
     });*/
     animationController.forward();
+  }
+
+  void navigateToHome() {
+    Future.delayed(const Duration(seconds: 2), () {
+      Get.to(const HomeView(),
+          transition: Transition.fade, duration: kTranstionDuration);
+    });
   }
 }
